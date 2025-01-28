@@ -71,7 +71,7 @@ print(f"Transactions per second (Isolation Forest): {transactions_per_second:.2f
 
 # --- Graphs ---
 
-# 1. Anomaly Score Distribution
+# Anomaly Score Distribution
 plt.figure(figsize=(10, 6))
 sns.histplot(anomaly_scores, kde=True, bins=50, color='blue')
 plt.title('Anomaly Scores Distribution (Isolation Forest)', fontsize=16)
@@ -80,7 +80,7 @@ plt.ylabel('Frequency', fontsize=14)
 plt.grid(True)
 plt.show()
 
-# 2. Confusion Matrix Heatmap
+# Confusion Matrix Heatmap
 cm = confusion_matrix(y_test, y_pred)
 plt.figure(figsize=(8, 6))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=['Non-Fraud', 'Fraud'], yticklabels=['Non-Fraud', 'Fraud'])
@@ -89,7 +89,7 @@ plt.xlabel('Predicted', fontsize=14)
 plt.ylabel('Actual', fontsize=14)
 plt.show()
 
-# 3. Feature Importance (XGBoost)
+# Feature Importance (XGBoost)
 feature_importances = xgb_model.feature_importances_
 sorted_idx = np.argsort(feature_importances)[::-1]
 sorted_features = X.columns[sorted_idx]
